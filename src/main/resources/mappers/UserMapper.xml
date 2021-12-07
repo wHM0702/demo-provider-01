@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demoprovider01.dao.UserDao">
+
+    <select id="checkLogin" resultType="model.entity.User">
+        select * from `user` where userName=#{userName} and password=#{password};
+    </select>
+
+    <select id="queryAll" resultType="model.entity.detail">
+        SELECT * FROM bolg_detail ORDER BY createDate DESC;
+    </select>
+
+    <insert id="addComment">
+        insert into blog_comment (blogld,content,createUser,createDate)
+        values (#{bid},#{content},#{id},SYSDATE());
+    </insert>
+
+</mapper>

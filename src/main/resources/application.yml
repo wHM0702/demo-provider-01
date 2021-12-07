@@ -1,0 +1,33 @@
+server:
+  port: 9003
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:9000/eureka/
+
+spring:
+  application:
+    name: demo-provider
+
+  activemq:
+    broker-url: tcp://47.93.214.168:61616
+    user: admin
+    password: admin
+    packages:
+      trust-all: true
+  redis:
+    port: 6379
+    host: 47.93.214.168
+    password: 123456
+    database: 2
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/example?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 123
+
+mybatis:
+  mapper-locations: classpath:mappers/*.xml
+  type-aliases-package: model.*
